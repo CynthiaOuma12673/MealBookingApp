@@ -20,6 +20,7 @@ class Profile(models.Model):
     @receiver(post_save, sender=User)
     def save_user_profile(sender, instance, **kwargs):
         instance.profile.save()
+
 class Oder(models.Model):
     ref_code = models.CharField(max_length=20)
     user = models.OneToOneField(on_delete=models.CASCADE)
