@@ -7,6 +7,5 @@ from django.db.models.signals import post_save
 
 
 
-class Profile(models.Model):
-    profile_pic = CloudinaryField('image')
+
     
