@@ -36,7 +36,8 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'cloudinary',
     'meal.apps.MealConfig',
-    'bootstrap3',
+    'bootstrap4',
+    'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
