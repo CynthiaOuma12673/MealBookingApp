@@ -27,7 +27,7 @@ class Profile(models.Model):
 class Oder(models.Model):
     ref_code = models.CharField(max_length=20)
     user = models.OneToOneField(on_delete=models.CASCADE)
-    is_ordered = models.BooleanField(default=_'')
+    is_ordered = models.BooleanField()
     date_orderd = models.DateTimeField(auto_now=True)
     customer = models.ForeignKey(Profile, on_delete=models.SET_NULL, null=True)
 
