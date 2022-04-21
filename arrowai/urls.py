@@ -15,8 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from meal import views as meal_views
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('meal.aurls'))
+    path('', include('meal.urls')),
+    path('tinymce/', include('tinymce.urls')),
+    path('accounts/register/',meal_views.register, name='register'),
+    path('accounts/login/',auth_views.LoginView.as_view(redirect_authenticated_user=True), name='login'),
+    path('logout/',auth_views.LogoutView.as_view(), name='logout'),
+    path('social-auth/',include('social_django.urls',namespace='social')),
 ]
