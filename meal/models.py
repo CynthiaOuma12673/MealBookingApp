@@ -1,6 +1,9 @@
 from django.db import models
 from .models import Profile
 from django.contrib.auth.models import User
+from django.dispatch import receiver
+from django.db.models.signals import post_save
+from cloudinary.models import CloudinaryField
 
 # Create your models here.
 class Profile(models.Model):
@@ -24,7 +27,7 @@ class Profile(models.Model):
 class Oder(models.Model):
     ref_code = models.CharField(max_length=20)
     user = models.OneToOneField(on_delete=models.CASCADE)
-    is_ordered = models.BooleanField(default=_FormatStyle)
+    is_ordered = models.BooleanField(default=_'')
     date_orderd = models.DateTimeField(auto_now=True)
     customer = models.ForeignKey(Profile, on_delete=models.SET_NULL, null=True)
 
