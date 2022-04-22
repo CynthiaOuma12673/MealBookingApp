@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% load bootstrap4 %}
+{% block content%}
+{{block.super}}
+<div class="container mt-3 mb-2">
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %} alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        {{message}}
+    </div>
+    {% endfor %}
+    {% endif %}
+    <a href="{% url 'new_order' %}" class="btn join black font-weight-bol btn-sm"><i class="fas fa-plus"></i> NEW ORDER</a>
+    {% for order in orders %}
+    <div class="hood-cont p-2 card mt-3" >
+        <div class="row">
+            <div class="col-md-4">
+                <img class="order-logo" src="{{order.order_logo.url}}" alt=" " height="200" width="320">
+            </div>
+            <div class="col-md-3">
+                <h4 class="card-title">{{order.name|title}}</h4>
+            </div>
+            <div class="col-md-3">
+                <p class="card-text">{{order.description}}</p>
+            </div>
+            <div class="col-md-2 pt-3 pl-5">
+                {% if request.user.profile.order == order %}
+                <a href="{% url 'my_order' order.id %}" class="btn btn-outline-warning font-weight-bold btn-sm mb-2">VIEW ORDER</a> 
+                {% elif not request.user.profile.order %}
+                <a href="{% url 'my_order' order.id %}" class="btn join black font-weight-bold btn-sm">ADD ORDER</a> 
+                {% endif %}
+                {%if order.admin == current_user%}
+                        <p class="ml-4 mt-5">
+                        <a href="{% url 'update_order' order.id %}"><i class="fas fa-edit"></i></a>
+                        </p>
+                {%endif%}
+            </div>
+        </div>
+
+    </div>
+    {% endfor %}
+</div>
+{%endblock%}

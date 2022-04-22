@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% load bootstrap4 %}
+{% block content%}
+{{block.super}}
+
+
+<div class="container-fluid">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="text-center">
+        <div class="heading text-center">
+            <h1>Arrowaii Meals</h1>
+        </div>
+        <div class="sub-heading">
+            Delicious Meals
+        </div>
+        <div class="text">
+            <p>
+                <span>Get the most delciuos meals from</span>
+                    <span>us, all you need to do is  click</span>
+                            <span>the button below</span>
+            </p>
+        </div>
+        <div class="order-btn">
+            <button class="btn"><a href="{%url 'order'%}">BOOK NOW</a></button>
+        </div>
+    </div>
+    </div>
+    <div class="col-md-6">
+        <img src="./static/photos/menu2.png" alt="">
+    </div>
+    </div>
+    </div>
+    <div class="footer">
+        <div class="text-center">
+        Copyright (c) Meals App
+    </div>
+    </div>
+</div>
+
+{%endblock%}
