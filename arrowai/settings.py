@@ -37,6 +37,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'cloudinary',
     'crispy_forms',
+    'phone_field',
     'meal.apps.MealConfig',
     'bootstrap4',
     'django.contrib.admin',
@@ -85,9 +86,9 @@ WSGI_APPLICATION = 'arrowai.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'meals',
+        'NAME': 'arrowai',
         'USER': 'moringa',
-        'PASSWORD': 'meals',
+        'PASSWORD': 'cyn',
     
     }
 }

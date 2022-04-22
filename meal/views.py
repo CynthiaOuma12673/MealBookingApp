@@ -64,8 +64,8 @@ def update_order(request,id):
 def search_order(request):
     current_user= request.user
     if request.method == 'GET':
-        name = request.GET.get("name")
-        order = Oder.objects.filter(name__icontains=name).all()
+        title = request.GET.get("title")
+        order = Oder.objects.filter(title__icontains=title).all()
 
     return render(request, 'all-meals/search.html', {'order': order,'current_user':current_user})
 

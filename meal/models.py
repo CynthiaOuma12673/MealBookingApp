@@ -29,9 +29,15 @@ class Oder(models.Model):
     description = models.TextField(max_length=400, blank=True)
     date_ordered = models.DateTimeField(auto_now=True)
     image = CloudinaryField('image')
+    owner = models.ForeignKey(User, on_delete=models.CASCADE, related_name='order_owner')
 
     def get_cart_item(self):
         return self.item.all()
+        
+    def save_order(self):
+        return self.save()
 
     def __str__(self):
-        return self.owner, self.ref_code
+        return self.title, self.title
+
+
