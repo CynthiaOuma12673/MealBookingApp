@@ -2,7 +2,45 @@
 {% load bootstrap4 %}
 
 {% block content %}
+<section class="container">
+            <div class="column-md-4 row">
+                {% if profile.profile_pic %}
 
-<h1>Do I work?</h1>
+                <img src="{{user.profile.profile_pic.url}}" alt="profile pic" style="border-radius: 50%; width: 200px; height: 200px;">
+                {% else %}
+                <p> {{user.username}} has no profile picture yet</p>
+                {% endif %}
+
+                <div class="col-md-4 row style="padding-top: 20px">
+                    <p> Username: Vikings the count {{user.username}} </p>
+                    <br>
+                    <div class="" >
+                    <p> Email: Bravo chale echo {{user.email}} </p>
+                    </div>
+                </div>
+
+                 <div class="col-md-4 row" style="padding-top:2rem;">
+                     <div>
+                    <p> Edit Profile</p>
+                    </div>
+                 </div>
+        </div>
+        <div class="container">
+
+            <div class="" >
+                <h3 class="text-center" >My orders</h3>
+
+                {% for order in orders %}
+                
+                {% endfor %}
+            </div>
+         </div>
+            
+
+
+      
+    </div>
+</section>
+
 
 {% endblock %}

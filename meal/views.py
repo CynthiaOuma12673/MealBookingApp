@@ -1,18 +1,19 @@
 from django.shortcuts import render, redirect
-from .models import Profile
+from .models import *
 from django.contrib.auth.models import User
 from .forms import *
 # Create your views here.
 
-def index(request):
+# def home(request):
 
-    return render(request, 'all-meals/home.html')
+#     return render(request, 'all-meals/home.html')
 
 
 def profile(request):
     current_user = request.user
     profile=Profile.objects.filter(user_id=current_user.id)
-    return render(request, 'profile.html', {'profile': profile})
+    orders= Oder.objects.filter(id=current_user.id)
+    return render(request, 'profile.html', {'profile': profile, 'orders':orders})
 
 
 def update_profile(request, id):
